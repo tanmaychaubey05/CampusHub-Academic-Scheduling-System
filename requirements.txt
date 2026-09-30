@@ -1,0 +1,7 @@
+# CampusHub Dependencies
+# Core system runs on Python 3.10+ Standard Library with ZERO external dependencies!
+#
+# Optional Development, Testing, and Quality Tools:
+pytest>=8.0.0
+pytest-cov>=4.1.0
+flake8>=7.0.0

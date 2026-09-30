@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Academic Project Report - CampusHub</title>
+  <style>
+    @media print {
+      body { font-size: 11pt; line-height: 1.4; color: #000; }
+      .page-break { page-break-before: always; }
+      .no-print { display: none; }
+      @page { margin: 20mm; }
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f8fafc;
+    }
+    .report-paper {
+      background: #fff;
+      padding: 60px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .cover-page {
+      text-align: center;
+      padding: 80px 20px;
+      border: 3px double #4f46e5;
+      margin-bottom: 50px;
+      background: #fafafa;
+    }
+    .cover-title {
+      font-size: 26pt;
+      font-weight: 800;
+      color: #1e1b4b;
+      margin: 20px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .cover-subtitle {
+      font-size: 13pt;
+      color: #4f46e5;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+    .cover-meta {
+      font-size: 11pt;
+      color: #475569;
+      line-height: 1.8;
+      margin-top: 40px;
+    }
+    h1 {
+      font-size: 19pt;
+      color: #1e1b4b;
+      border-bottom: 2px solid #4f46e5;
+      padding-bottom: 6px;
+      margin-top: 40px;
+    }
+    h2 {
+      font-size: 14pt;
+      color: #312e81;
+      margin-top: 24px;
+    }
+    h3 {
+      font-size: 12pt;
+      color: #4338ca;
+    }
+    p, li {
+      font-size: 10.5pt;
+      color: #334155;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 10pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #1e293b;
+      font-weight: 700;
+    }
+    pre {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: Consolas, monospace;
+      font-size: 9.5pt;
+      overflow-x: auto;
+    }
+    .badge-pass {
+      background: #dcfce7;
+      color: #15803d;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .print-btn-bar {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #fff;
+      padding: 10px 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      z-index: 999;
+    }
+    .print-btn {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 11pt;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .print-btn:hover { background: #4338ca; }
+  </style>
+</head>
+<body>
+
+  <div class="print-btn-bar no-print">
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </div>
+
+  <div class="report-paper">
+    <!-- 1. COVER PAGE -->
+    <div class="cover-page">
+      <div style="font-size: 16pt; font-weight: 700; color: #4338ca;">VITyarthi - Build Your Own Project</div>
+      <div style="font-size: 11pt; color: #64748b; margin-top: 4px;">Flipped Course Evaluation Project Report</div>
+      
+      <div class="cover-title">CampusHub</div>
+      <div class="cover-subtitle">Academic Resource & Peer Study Group Scheduling System</div>
+      
+      <div class="cover-meta">
+        <strong>Course Domain:</strong> Software Engineering & Python Application Development<br>
+        <strong>Student Name:</strong> Tanmay Chaubey<br>
+        <strong>Academic Term:</strong> Fall 2026<br>
+        <strong>Architecture:</strong> Pure Python 3 Standard Architecture & Relational SQLite<br>
+        <strong>Repository:</strong> Complete Source Code, Unit Tests & Documentation Included
+      </div>
+    </div>
+
+    <!-- 2. INTRODUCTION -->
+    <h1>2. Introduction</h1>
+    <p>Peer tutoring and self-organized study sessions are cornerstones of collegiate academic success. When classmates collaborate on algorithmic puzzles, systems programming labs, or database designs, their understanding and course grades improve dramatically.</p>
+    <p>However, running study circles over WhatsApp or Discord is notoriously frustrating. Meeting timings get lost in conversational clutter, peer mentors double-book review slots, and shared study materials get buried or expire. <strong>CampusHub</strong> is an academic platform written in pure Python that brings order to student collaboration through course-indexed study groups, conflict-free scheduling, categorized resource indexing, attendance analytics, and an integrated academic integrity engine.</p>
+
+    <!-- 3. PROBLEM STATEMENT -->
+    <h1>3. Problem Statement</h1>
+    <p>College students face clear, recurring obstacles when attempting to organize study groups:</p>
+    <ul>
+      <li><strong>Cluttered Communication:</strong> Meeting details and locations disappear under hundreds of chat messages.</li>
+      <li><strong>Double-Booking:</strong> Tutors handling multiple subjects frequently schedule conflicting study slots on the same day.</li>
+      <li><strong>Unindexed Study Materials:</strong> Notes, past paper solutions, and code files are scattered across personal cloud links that get lost.</li>
+      <li><strong>Zero Accountability:</strong> No record exists of who attended review meets or whether the tutor's explanations were clear.</li>
+      <li><strong>Academic Integrity Risks:</strong> Collaborative groups need tools to ensure shared materials are original rather than plagiarized or synthetic code.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- 4. FUNCTIONAL REQUIREMENTS -->
+    <h1>4. Functional Requirements</h1>
+    <h3>Module 1: User & Study Group Management</h3>
+    <ul>
+      <li><strong>User Authentication:</strong> Secure student and tutor sign-up with email validation, password checks, and salted PBKDF2 SHA-256 hashing.</li>
+      <li><strong>Course Study Groups:</strong> Creation of subject cohorts (e.g. CSE2001) with capacity controls.</li>
+      <li><strong>Approval Workflows:</strong> Direct enrollment for public groups and leader authorization queues for private groups.</li>
+    </ul>
+
+    <h3>Module 2: Session Scheduler & Conflict Detector</h3>
+    <ul>
+      <li><strong>Conflict-Free Booking:</strong> Review session scheduling with room locations or virtual video links.</li>
+      <li><strong>Algorithmic Interval Collision Check:</strong> Mathematical detection preventing overlapping bookings: <code>(StartA &lt; EndB) AND (EndA &gt; StartB)</code>.</li>
+      <li><strong>RSVP & Verified Attendance:</strong> Seat reservation and timestamped check-in attendance verification.</li>
+    </ul>
+
+    <h3>Academic Resource Repository Submodule</h3>
+    <ul>
+      <li><strong>Categorization:</strong> Notes, Past Papers, Code Scripts, Slides, and Reference Guides.</li>
+      <li><strong>Tag Indexing & Multi-Search:</strong> Fast filtering by keyword, course code, and comma-separated tags.</li>
+      <li><strong>Download Frequency Auditing:</strong> Dynamic counter tracking material popularity.</li>
+    </ul>
+
+    <h3>Module 3: Peer Review & Analytics Engine</h3>
+    <ul>
+      <li><strong>5-Star Review System:</strong> Attendees rate sessions and provide written feedback; hosts are prevented from self-rating.</li>
+      <li><strong>Turnout Ratios:</strong> Automated computation of attendance percentage: <code>(Verified / Total RSVPs) * 100%</code>.</li>
+      <li><strong>Performance Dossiers:</strong> Auto-generated academic performance reports for cohorts.</li>
+    </ul>
+
+    <h3>Academic Integrity & AI Code Detection Module</h3>
+    <ul>
+      <li><strong>Plagiarism Comparison Engine:</strong> Token winnowing algorithm to compute Jaccard similarity and containment percentages.</li>
+      <li><strong>AI Code Detector:</strong> Calculates Shannon token entropy, Type-Token Ratio, line length burstiness variance, and checks for AI boilerplate.</li>
+    </ul>
+
+    <!-- 5. NON-FUNCTIONAL REQUIREMENTS -->
+    <h1>5. Non-Functional Requirements</h1>
+    <ul>
+      <li><strong>Performance:</strong> Sub-50ms query latency via database indexes on session times, courses, and usernames. SQLite Write-Ahead Logging (WAL) enabled.</li>
+      <li><strong>Security:</strong> Salted PBKDF2 SHA-256 password hashing (100,000 rounds) and parameterized SQL queries to prevent SQL injection.</li>
+      <li><strong>Zero-Dependency Execution:</strong> Runs natively on Python 3 standard library with zero external pip package installation overhead.</li>
+      <li><strong>Reliability:</strong> ACID transactional integrity with automated rollback upon operational exceptions.</li>
+      <li><strong>Maintainability:</strong> Clean layered Service-Model-Repository architecture across 13 distinct Python modules.</li>
+    </ul>
+
+    <!-- 6. SYSTEM ARCHITECTURE -->
+    <h1>6. System Architecture</h1>
+    <pre>
++---------------------------------------------------------------+
+|                       Presentation Tier                       |
+|         Interactive Terminal CLI  |  Native Web Dashboard     |
++-------------------------------+-------------------------------+
+                                |
++-------------------------------v-------------------------------+
+|                       Service Logic Tier                      |
+|   AuthService  |  GroupService  |  Scheduler  |   Analytics   |
+|   ResourceService               |  IntegrityService           |
++-------------------------------+-------------------------------+
+                                |
++-------------------------------v-------------------------------+
+|                      Data & Storage Tier                      |
+|       DatabaseManager  <-->  Relational SQLite Data Store     |
+|   (users, study_groups, sessions, attendance, resources)      |
++---------------------------------------------------------------+
+    </pre>
+
+    <div class="page-break"></div>
+
+    <!-- 7. DESIGN DIAGRAMS -->
+    <h1>7. Design Diagrams</h1>
+    
+    <h2>7.1 Entity-Relationship (ER) Schema</h2>
+    <table>
+      <thead>
+        <tr><th>Table Name</th><th>Primary Key</th><th>Foreign Keys</th><th>Key Fields</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>users</strong></td><td>id</td><td>None</td><td>username, email, password_hash, salt, role, department</td></tr>
+        <tr><td><strong>study_groups</strong></td><td>id</td><td>creator_id (users)</td><td>name, course_code, max_members, is_private</td></tr>
+        <tr><td><strong>group_members</strong></td><td>id</td><td>group_id, user_id</td><td>role_in_group, status (ACTIVE/PENDING)</td></tr>
+        <tr><td><strong>study_sessions</strong></td><td>id</td><td>group_id, host_id</td><td>title, start_time, end_time, status, location_or_link</td></tr>
+        <tr><td><strong>session_attendance</strong></td><td>id</td><td>session_id, user_id</td><td>status (RSVP/ATTENDED), check_in_time</td></tr>
+        <tr><td><strong>study_resources</strong></td><td>id</td><td>group_id, uploader_id</td><td>title, resource_type, file_or_url, tags, download_count</td></tr>
+        <tr><td><strong>session_reviews</strong></td><td>id</td><td>session_id, reviewer_id</td><td>rating (1-5), comments, reviewee_id</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 8. DESIGN DECISIONS & RATIONALE -->
+    <h1>8. Design Decisions & Rationale</h1>
+    <ul>
+      <li><strong>Standard Library Focus:</strong> Eliminates installation barriers so evaluators can run the project on any standard Python setup.</li>
+      <li><strong>Interval Collision Logic:</strong> Prevents scheduling clashes algorithmically at insertion time, providing 100% schedule reliability.</li>
+      <li><strong>MOSS-Style Winnowing for Plagiarism:</strong> Fingerprints token streams so comparisons remain robust against superficial variable renaming.</li>
+    </ul>
+
+    <!-- 9. IMPLEMENTATION DETAILS -->
+    <h1>9. Implementation Details</h1>
+    <p>The codebase is organized into modular Python files:</p>
+    <ul>
+      <li><code>campushub/models/</code>: Defines data transfer classes (<code>User</code>, <code>StudyGroup</code>, <code>StudySession</code>, <code>StudyResource</code>, <code>SessionReview</code>).</li>
+      <li><code>campushub/services/</code>: Implements business logic (<code>AuthService</code>, <code>GroupService</code>, <code>SchedulerService</code>, <code>ResourceService</code>, <code>AnalyticsService</code>, <code>IntegrityService</code>).</li>
+      <li><code>campushub/database/</code>: Provides connection handling, schema definition, and ACID transactions.</li>
+      <li><code>campushub/cli/</code>: Formats clean terminal menus and tables.</li>
+      <li><code>campushub/web/</code>: Provides zero-dependency HTTP server with JSON REST APIs and frontend dashboard.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- 10. SCREENSHOTS & RESULTS -->
+    <h1>10. Screenshots & Results</h1>
+    <p><strong>Sample Analytics Report:</strong></p>
+    <pre>
+============================================================
+         CAMPUSHUB ACADEMIC STUDY GROUP ANALYTICS REPORT
+============================================================
+Group Name       : Algorithms & DS Mastery
+Course Code      : CSE2001
+Active Members   : 3
+------------------------------------------------------------
+SESSION PERFORMANCE METRICS:
+  * Total Sessions Created : 1
+  * Completed Sessions     : 1
+  * Currently Scheduled    : 0
+  * Cancelled Sessions     : 0
+------------------------------------------------------------
+ATTENDANCE & ENGAGEMENT:
+  * Total Member RSVPs     : 2
+  * Verified Attendances   : 2
+  * Attendance Rate        : 100.0%
+------------------------------------------------------------
+RESOURCE SHARING & COLLABORATION:
+  * Total Materials Uploaded : 1
+  * Material Access Count    : 2
+------------------------------------------------------------
+QUALITY & PEER EVALUATION:
+  * Average Satisfaction   : 5.0 / 5.0
+  * Reviews Evaluated      : 1
+============================================================
+    </pre>
+
+    <!-- 11. TESTING APPROACH -->
+    <h1>11. Testing Approach</h1>
+    <p>Automated unit tests were built using Python's standard <code>unittest</code> framework with in-memory SQLite isolation. All 23 test cases pass successfully:</p>
+    <table>
+      <thead>
+        <tr><th>Test Name</th><th>Module</th><th>Purpose</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>test_successful_registration_and_login</code></td><td>AuthService</td><td>Validate password hashing & login flow</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_duplicate_username_rejection</code></td><td>AuthService</td><td>Reject duplicate username registration</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_weak_password_validation</code></td><td>AuthService</td><td>Enforce alphanumeric password length</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_create_group_and_leader_assignment</code></td><td>GroupService</td><td>Auto-assign creator as Leader</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_join_private_group_and_approval</code></td><td>GroupService</td><td>Leader approval workflow verification</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_host_conflict_detection_algorithm</code></td><td>SchedulerService</td><td>Reject overlapping bookings for tutor</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_group_conflict_detection</code></td><td>SchedulerService</td><td>Reject simultaneous sessions for group</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_rsvp_and_attendance_checkin</code></td><td>SchedulerService</td><td>Verify seat reservation & check-in</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_self_review_prohibition</code></td><td>AnalyticsService</td><td>Prevent hosts from rating themselves</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_group_analytics_metrics</code></td><td>AnalyticsService</td><td>Validate attendance ratio math</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_identical_plagiarism_detection</code></td><td>IntegrityService</td><td>Detect matching token fingerprints in code</td><td><span class="badge-pass">PASS</span></td></tr>
+        <tr><td><code>test_detect_ai_code_markers</code></td><td>IntegrityService</td><td>Score synthetic AI code heuristics</td><td><span class="badge-pass">PASS</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- 12. CHALLENGES FACED -->
+    <h1>12. Challenges Faced</h1>
+    <ul>
+      <li><strong>Interval Collision Edge Cases:</strong> Solved by using universal overlap logic: <code>(StartA &lt; EndB) AND (EndA &gt; StartB)</code>.</li>
+      <li><strong>In-Memory Database Persistence during Tests:</strong> Retained persistent connection pointers during unit test executions.</li>
+      <li><strong>Zero-Dependency Browser GUI:</strong> Implemented using native <code>http.server</code> and Vanilla JS.</li>
+    </ul>
+
+    <!-- 13. LEARNINGS & TAKEAWAYS -->
+    <h1>13. Learnings & Key Takeaways</h1>
+    <p>Demonstrated the capability of building production-grade, maintainable software systems using pure Python principles, strict separation of concerns, and robust test-driven development.</p>
+
+    <!-- 14. FUTURE ENHANCEMENTS -->
+    <h1>14. Future Enhancements</h1>
+    <ul>
+      <li>Two-way integration with Google Calendar and Outlook APIs.</li>
+      <li>Automated SMS and email reminders prior to study meets.</li>
+      <li>Machine learning recommendations matching study cohorts based on common course schedules.</li>
+    </ul>
+
+    <!-- 15. REFERENCES -->
+    <h1>15. References</h1>
+    <ol>
+      <li>Python Software Foundation. <em>Python 3 Standard Library Documentation</em>. https://docs.python.org/3/</li>
+      <li>Schleimer, S., Wilkerson, D. S., & Aiken, A. <em>Winnowing: Local Algorithms for Document Fingerprinting</em>. ACM SIGMOD, 2003.</li>
+      <li>Silberschatz, A., Korth, H. F., & Sudarshan, S. <em>Database System Concepts</em>. McGraw-Hill, 2019.</li>
+      <li>Martin, R. C. <em>Clean Architecture: A Craftsman's Guide to Software Structure</em>. Prentice Hall, 2017.</li>
+      <li>OWASP Foundation. <em>Password Storage Cheat Sheet</em>. https://cheatsheetseries.owasp.org/</li>
+    </ol>
+  </div>
+</body>
+</html>
